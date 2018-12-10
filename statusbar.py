@@ -4,6 +4,7 @@ from cpu_module import CpuModule, OwnCpuUsage, cpu
 from memory_module import MemoryModule
 from disk_space_free_module import DiskSpaceFreeModule
 import psutil
+from CommsModule import CommsModule
 import sys
 
 def main():
@@ -18,6 +19,7 @@ def main():
         print(',[')
         modules = []
 
+        modules.append(CommsModule())
         modules.append(DiskSpaceFreeModule())
         modules.append(MemoryModule())
         modules.append(OwnCpuUsage())
