@@ -28,7 +28,8 @@ class CpuModule(Base):
 
     def full_text(self):
         self.cpu = cpu.get_cpu()[self.core]
-        return "Core " + str(self.core) + ": " + str(self.cpu) + "%"
+        # return "Core " + str(self.core) + ": " + str(self.cpu) + "%"
+        return str(self.cpu) + "%"
 
     def color(self):
         if self.cpu < 33:
@@ -39,7 +40,8 @@ class CpuModule(Base):
             return "#FF0000"
 
     def min_width(self):
-        return "Core 0: 100.0%"
+        # return "Core 0: 100.0%"
+        return "100.0%"
 
 
 class OwnCpuUsage(Base):
@@ -51,7 +53,10 @@ class OwnCpuUsage(Base):
 
     def full_text(self):
         self.cpu = self.process.cpu_percent()
-        return "Status Bar cpu usage: " + str(self.cpu)
+        return "Bar Usage: " + str(self.cpu) + "%"
+
+    def min_width(self):
+        return "Bar Usage: 100%"
 
     def color(self):
         if self.cpu < 33:
