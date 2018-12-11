@@ -3,8 +3,13 @@ import json
 
 
 def request(requester):
-    response = requests.get("http://frozenfire.tk:5000/get/" + requester).content.decode('utf8')
-    return json.loads(response)
+    try:
+        response = requests.get("http://frozenfire.tk:5000/get/" + requester).content.decode('utf8')
+
+        return json.loads(response)
+    except RuntimeError:
+        return ['system', "pieter fucked met je bar"]
+
 
 def write(origin, goal, message):
     data = {'from': origin, 'to': goal, 'msg': message}

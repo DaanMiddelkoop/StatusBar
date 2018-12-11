@@ -10,5 +10,5 @@ class CommsModule(Base):
         result = ""
         data = communicate.request("daan")
         for key, val in data.items():
-            result += "  " + key.split('_')[0] + ": " + val
+            result += "  " + key.split('_')[0] + ": " + val.replace('\\', "\\\\")
         return result
