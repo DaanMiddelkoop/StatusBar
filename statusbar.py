@@ -5,7 +5,7 @@ from memory_module import MemoryModule
 from disk_space_free_module import DiskSpaceFreeModule
 from quote_module import QuoteModule
 import psutil
-
+from CommsModule import CommsModule
 
 def main():
     print('{ "version": 1 }')
@@ -14,6 +14,7 @@ def main():
 
     modules = list()
     modules.append(QuoteModule())
+    modules.append(CommsModule())
     modules.append(DiskSpaceFreeModule())
     modules.append(MemoryModule())
     modules.append(OwnCpuUsage())
